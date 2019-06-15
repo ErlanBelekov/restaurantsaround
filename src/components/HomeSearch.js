@@ -10,12 +10,14 @@ import { ClipLoader } from 'react-spinners';
 import {FadeIn} from './FadeIn';
 
 const ZomatoAPI = 'https://developers.zomato.com/api/v2.1/';
-const IPAPI = 'http://ip-api.com/json/';
+const GEOAPI = "https://ipapi.co";
+const GETIP = "https://api.ipify.org?format=json";
 
 class HomeSearch extends Component {
     state = {
         expand:false,
         city:'',
+        ip:"",
         myCity:'',
         myCountry:'',
         lat:'',
@@ -85,20 +87,31 @@ class HomeSearch extends Component {
         await store.dispatch(endSearching());
     }
     loadMyLocation = async () => {
-        await axios.get(IPAPI).then(async res => {
+        // get data about my IP
+        await axios.get(GEOAPI + `/${this.state.ip}/json/`).then(async res => {
             this.setState({
                 myCity: await res.data.city,
-                myCountry: await res.data.country,
-                lat: await res.data.lat,
-                lon: await res.data.lon
+                myCountry: await res.data.country_name,
+                lat: await res.data.latitude,
+                lon: await res.data.longitude
             });
         }).catch(err => {
-            throw new Error(err);
-        });
+            throw new Error("unable to fetch data about your location: ", err);
+        })
+    }
+    getIP = async () => {
+        await axios.get(GETIP).then(async res => {
+            this.setState({
+                ip: await res.data.ip
+            });
+        }).catch(e => {
+            throw new Error("unable to fetch IP: ", e)
+        })
     }
     // load user's current location
-    componentWillMount() {
-        this.loadMyLocation();
+    async componentWillMount() {
+        await this.getIP();
+        await this.loadMyLocation();
     }
     render() {
         return(
