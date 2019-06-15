@@ -27,7 +27,8 @@ class HomeSearch extends Component {
     toggle = async () => {
         this.setState({
             city: await "",
-            expand: await !this.state.expand
+            expand: await !this.state.expand,
+            error:null
         });
         this.state.expand ? this.input.focus() : console.log("yikes");
     }
@@ -122,13 +123,13 @@ class HomeSearch extends Component {
                 <div className="search-contain">
                     <img src={logo} alt="search button icon" onClick={this.toggle} id="search-btn"/>
                     <input
-                    value={this.state.city}
-                    name="city"
-                    autoComplete="off"
-                    onChange={this.handleChange}
-                    ref={this.getInputRef}
-                    className={this.state.expand ? "wide" : ""} type="text" id="search"
-                    placeholder={this.state.expand ? "Enter city name" : ""}
+                        value={this.state.city}
+                        name="city"
+                        autoComplete="off"
+                        onChange={this.handleChange}
+                        ref={this.getInputRef}
+                        className={this.state.expand ? "wide" : ""} type="text" id="search"
+                        placeholder={this.state.expand ? "Enter city name" : ""}
                     />
                     <div className="bottom">
                         <p className={this.state.expand ? "tip-show" : "tip-hide"} id="tip">By default, we will look for restaurants near you.</p>
