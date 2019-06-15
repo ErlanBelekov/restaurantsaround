@@ -1,0 +1,28 @@
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    height:40vh;
+    text-decoration: none;
+    margin:10px 7px;
+}
+p.r-name:hover {
+    color:red;
+}
+.r-image-wrapper {
+    height:80%;
+    width:100%;
+}
+.r-image {
+    background-size:cover;
+    background-position:center;
+    height:100%;
+    width:100%;
+}
+.r-name {
+    font-size: 1em;
+    color: white;
+    font-weight: bold;
+    transition: color 130ms ease-in-out;
+}

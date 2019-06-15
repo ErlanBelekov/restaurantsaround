@@ -1,0 +1,30 @@
+.results {
+    display: none;
+}
+.results.results-show {
+    min-height:80vh;
+    background: yellow;
+    min-width: 100vw;
+}
+.results-show h1 {
+    text-align: center;
+}
+.results-title {
+    margin-bottom: 4%;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .results-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}
+.results-content {
+    height:100%;
+    width:100%;
+    /* margin-left: 10px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}

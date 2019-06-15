@@ -1,0 +1,122 @@
+.container, .container-less {
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 120ms linear;
+}
+.container-less {
+    height: 74vh;
+    min-width: 100vw;
+}
+
+.home-title {
+    margin:0 0 3% 0;
+}
+/*  Transform input into a circle to place search icon in it after*/
+input {
+  font-family: Arial, sans-serif;
+  background: rgba(0, 110, 255);
+  width:20px;
+  height:20px;
+  color: white;
+  border:0;
+  padding:20px;
+  cursor: pointer;
+  border-radius:30px;
+  font-size: 1.6em;
+  outline:none;
+  transition: width 200ms ease;
+}
+input.wide {
+    width: 60%;
+    padding-left:60px;
+    cursor: text;
+}
+input::placeholder {
+  color: rgb(131, 185, 202);
+}
+
+#search-btn {
+  height:22px;
+  color:#fff;
+  width:22px;
+}
+img#search-btn {
+  margin: 18px 0 0 18px;
+  position:absolute;
+  cursor: pointer;
+}
+#tip {
+  color: rgb(106, 158, 226);
+  text-transform: uppercase;
+  font-size: .8em;
+  text-align: left;
+  margin-left: 20%;
+  visibility: hidden;
+  opacity:0;
+  display: flex;
+  align-items: center;
+  transition: all 100ms linear;
+}
+#tip.tip-hide {
+    visibility: hidden;
+}
+#tip.tip-show {
+    visibility: visible;
+    opacity: 1;
+}
+.search-contain {
+    width: 100%;
+}
+.search-contain:before {
+  content:"";
+  border-radius: 50%;
+  width:51px;
+  height:50px;
+  position:absolute;
+  border: 4px solid rgba(0, 110, 255);
+  animation: pulse 1s 10;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.bottom {
+    width:100%;
+    display: flex;
+}
+.search {
+    color:#fff !important;
+    margin-left:30% !important;
+    cursor: pointer;
+    margin-right:20% !important;
+}
+.searching {
+    margin-top:5%;
+    transition: opacity 120ms linear;
+    opacity: 0;
+}
+.searching.searching-show {
+    opacity: 1;
+}
+.error {
+    visibility: hidden;
+}
+.error.error-show {
+    visibility: visible;
+}
+p.error-show {
+    color:rgb(106, 158, 226);
+}
