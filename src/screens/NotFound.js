@@ -10,7 +10,7 @@ class NotFound extends Component {
                     alt=""
                 />
                 <h1 className="not-found-title">Whoopsie! Couldn't find this page ;(</h1>
-                <a href="/" className="back-home">Back Home</a>
+                <a href={process.env.PUBLIC_URL} className="back-home">Back Home</a>
             </div>
         );
     }
