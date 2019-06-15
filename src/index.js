@@ -7,10 +7,10 @@ import Home from './screens/Home';
 import NotFound from './screens/NotFound';
 import { Provider } from 'react-redux';
 import store from './store';
-
+console.log("yay");
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route component={NotFound}/>
